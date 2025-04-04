@@ -18,6 +18,16 @@ services:
     restart: on-failure
     networks:
       - compose-expense
+  frontend:
+    image: backend:v1
+    container_name: backend
+    volumes:
+      - ${PWD}/frontend/nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: on-failure
+    ports:
+      - "80:80"
+    networks:
+      - compose-expense
 networks:
  compose-expense:
    driver: bridge
