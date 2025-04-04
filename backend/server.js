@@ -92,6 +92,43 @@ app.post('/api/entries', (req, res) => {
   });
 });
 
+// DELETE: Delete entry by ID and invalidate Redis cache
+app.delete('/api/entries/:id', async (req, res) => {
+  const entryId = req.params.id;
+
+  db.query('DELETE FROM entries WHERE id = ?', [entryId], async (err, result) => {
+    if (err) {
+      console.error('❌ Delete Error:', err);
+      return res.status(500).send({ error: 'Failed to delete entry' });
+    }
+
+    if (result.affectedRows === 0) {
+      return res.status(404).send({ error: 'Entry not found' });
+    }
+
+    // Invalidate cache
+    await redisClient.del('all_entries');
+
+    res.send({ message: `Entry ${entryId} deleted` });
+  });
+});
+
+// DELETE: Delete all entries and clear Redis cache
+app.delete('/api/entries', async (req, res) => {
+  db.query('DELETE FROM entries', async (err, result) => {
+    if (err) {
+      console.error('❌ Delete All Error:', err);
+      return res.status(500).send({ error: 'Failed to delete all entries' });
+    }
+
+    // Clear Redis cache
+    await redisClient.del('all_entries');
+
+    res.send({ message: 'All entries deleted', affectedRows: result.affectedRows });
+  });
+});
+
+
 // Start server
 app.listen(PORT, HOST, () => {
   console.log(`🌐 Server running at http://${HOST}:${PORT}`);
