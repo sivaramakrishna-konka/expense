@@ -1,0 +1,53 @@
+.entries-container {
+    flex-grow: 1;
+    background-color: #1f4068;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px #000000;
+    padding: 20px;
+    margin-left: 20px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .table-wrapper {
+    flex-grow: 1;
+    margin-top: 20px;
+    display: block;
+    overflow: hidden;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #162447;
+    border-radius: 8px;
+    table-layout: fixed;
+  }
+  
+  thead {
+    position: sticky;
+    top: 0;
+    background-color: #162447;
+    z-index: 2; /* Keep the header on top */
+  }
+  
+  th, td {
+    border: 1px solid #1b1b2f;
+    padding: 12px;
+    font-size: 16px;
+    text-align: left;
+    color: #ffffff;
+  }
+  
+  th {
+    background-color: #1f78ff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .table-body {
+    max-height: 400px; /* Set the height of the body */
+    overflow-y: auto;
+    display: block;
+  }
