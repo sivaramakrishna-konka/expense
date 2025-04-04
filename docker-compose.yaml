@@ -1,0 +1,12 @@
+services:
+  mysql:
+    image: mysql:v1
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=CrudApp@1
+    restart: on-failure
+    networks:
+      - compose-expense
+  networks:
+  compose-expense:
+    driver: bridge
