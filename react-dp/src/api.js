@@ -1,5 +1,4 @@
-const API_URL = 'https://spa-alb.bapatlas.site/api/entries';
-
+const API_URL = '/api/entries';
 export const fetchEntries = async () => {
   const response = await fetch(API_URL);
   if (!response.ok) {
