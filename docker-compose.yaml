@@ -7,6 +7,6 @@ services:
     restart: on-failure
     networks:
       - compose-expense
-  networks:
-  compose-expense:
-    driver: bridge
+networks:
+ compose-expense:
+   driver: bridge
