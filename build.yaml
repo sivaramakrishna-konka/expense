@@ -7,4 +7,8 @@ services:
   backend:
     build:
       context: ./backend
-    image: backend:v1
+    image: backend:
+  frontend:
+    build:
+      context: ./react-dp
+    image: frontend:v1
