@@ -22,7 +22,7 @@ services:
     image: backend:v1
     container_name: backend
     volumes:
-      - ${PWD}/frontend/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ${PWD}/nginx.conf:/etc/nginx/nginx.conf:ro
     restart: on-failure
     ports:
       - "80:80"
