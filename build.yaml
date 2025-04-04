@@ -4,3 +4,7 @@ services:
       context: ./mysql
       dockerfile: Dockerfile
     image: mysql:v1
+  backend:
+    build:
+      context: ./backend
+    image: backend:v1

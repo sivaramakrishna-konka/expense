@@ -7,6 +7,17 @@ services:
     restart: on-failure
     networks:
       - compose-expense
+  backend:
+    image: backend:v1
+    container_name: backend
+    environemnt:
+      - DB_HOST=mysql
+      - DB_USER=crud
+      - DB_PASSWORD=CrudApp@1
+      - DB_NAME=crud_app
+    restart: on-failure
+    networks:
+      - compose-expense
 networks:
  compose-expense:
    driver: bridge
