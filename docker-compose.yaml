@@ -10,7 +10,7 @@ services:
 
   mysql:
     image: mysql:8
-    container_name: mysql
+    container_name: mysql:v1
     environment:
       - MYSQL_ROOT_PASSWORD=CrudApp@1
       - MYSQL_DATABASE=crud_app
