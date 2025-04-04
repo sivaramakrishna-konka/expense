@@ -28,6 +28,15 @@ services:
       - "80:80"
     networks:
       - compose-expense
+  debug:
+    image: alpine
+    container_name: debug
+    command: sh
+    tty: true
+    stdin_open: true
+    networks:
+      - compose-expense
+
 networks:
  compose-expense:
    driver: bridge
