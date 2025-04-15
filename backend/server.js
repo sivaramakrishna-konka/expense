@@ -5,7 +5,7 @@ const cors = require('cors');
 const db = require('./db-config');
 const redis = require('redis');
 const request = require('supertest');
-const app = require('./app');
+const app = require('./server');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
