@@ -4,9 +4,7 @@
     "description": "Simple CRUD application with Node.js and MySQL",
     "main": "server.js",
     "scripts": {
-      "start": "node server.js"
-    },
-    "scripts": {
+      "start": "node server.js",
       "test": "jest"
     },
     "dependencies": {
