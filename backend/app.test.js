@@ -1,6 +1,6 @@
 const request = require('supertest');
 const express = require('express');
-const app = require('../app'); // Assuming your Express app is exported
+const app = require('./server'); // Assuming your Express app is exported
 
 describe('Health Check', () => {
   it('GET /health should return 200 and health message', async () => {
