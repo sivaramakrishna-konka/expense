@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const db = require('./db-config');
 const redis = require('redis');
+const request = require('supertest');
 const app = require('./app');
 
 const app = express();
